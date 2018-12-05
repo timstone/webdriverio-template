@@ -18,11 +18,14 @@ function getScreenshotName(folder, context){
 
     return path.join(process.cwd(), folder, `${testName}_${type}_${browserName}_v${browserVersion}_${browserWidth}x${browserHeight}.png`)
 }
-// Changes timeout to first value if debug mode is enabled, else defaults to second value
-var timeout = process.env.DEBUG ? 99999999 : 10000;
+// Changes timeout to first value if debug mode is enabled, else defaults to second value (increased for Browserstack testing)
+var timeout = process.env.DEBUG ? 99999999 : 240000;
 
 exports.config = {
     
+    user: process.env.BROWSERSTACK_USERNAME,
+    key: process.env.BROWSERSTACK_AUTH_KEY,
+    browserstackLocal: true,
     //
     // ==================
     // Specify Test Files
@@ -55,7 +58,7 @@ exports.config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same test should run tests.
     //
-    maxInstances: 10,
+    maxInstances: 1,
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
@@ -65,14 +68,12 @@ exports.config = {
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
-        maxInstances: 5,
+        // maxInstances: 1,
         //
-        browserName: 'chrome',
-        chromeOptions: {
-        // to run chrome headless the following flags are required
-        // (see https://developers.google.com/web/updates/2017/04/headless-chrome)
-        // args: ['--headless', '--disable-gpu'],
-        }
+        {
+        device: 'iPhone 8 Plus',
+        real_mobile: 'true',
+        os_version: '11.0'
     }],
     //
     // ===================
@@ -139,7 +140,7 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['selenium-standalone'],
+    services: ['browserstack'],
     //
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber

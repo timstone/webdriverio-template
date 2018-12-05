@@ -21,6 +21,7 @@
   },
   "scripts": {
     "test": "./node_modules/.bin/wdio wdio.conf.js",
+    "bstest": "./node_modules/.bin/wdio wdio.conf.browserstack.js",
     "lint": "standard",
     "lint-fix": "standard -- --fix"
   },
