@@ -19,7 +19,7 @@ function getScreenshotName(folder, context){
     return path.join(process.cwd(), folder, `${testName}_${type}_${browserName}_v${browserVersion}_${browserWidth}x${browserHeight}.png`)
 }
 // Changes timeout to first value if debug mode is enabled, else defaults to second value
-var timeout = process.env.DEBUG ? 99999999 : 10000;
+var timeout = process.env.DEBUG ? 99999999 : 10000
 
 exports.config = {
     
@@ -155,7 +155,7 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: http://webdriver.io/guide/reporters/dot.html
-    reporters: ['spec','junit'],
+    reporters: ['spec','junit'], 
     reporterOptions: {
         junit: {
             outputDir: './logs/junit'
@@ -179,7 +179,6 @@ exports.config = {
         timeout: timeout,     // <number> timeout for step definitions
         ignoreUndefinedDefinitions: false, // <boolean> Enable this config to treat undefined definitions as warnings.
     },
-    
     //
     // =====
     // Hooks
@@ -212,8 +211,8 @@ exports.config = {
      * @param {Array.<String>} specs List of spec file paths that are to be run
      */
     before: function (capabilities, specs) {
-      expect = require('chai').expect;
-    },
+      expect = require('chai').expect
+    }
     // before: function (capabilities, specs) {
     // },
     /**
@@ -223,7 +222,6 @@ exports.config = {
      */
     // beforeCommand: function (commandName, args) {
     // },
-    
     /**
      * Runs before a Cucumber feature
      * @param {Object} feature feature details
@@ -260,7 +258,6 @@ exports.config = {
      */
     // afterFeature: function (feature) {
     // },
-    
     /**
      * Runs after a WebdriverIO command gets executed
      * @param {String} commandName hook command name

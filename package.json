@@ -22,7 +22,7 @@
   "scripts": {
     "test": "./node_modules/.bin/wdio wdio.conf.js",
     "lint": "standard",
-    "lint-fix": "npm standard -- --fix"
+    "lint-fix": "standard -- --fix"
   },
   "repository": {
     "type": "git",
