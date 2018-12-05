@@ -36,11 +36,11 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './features/**/*.feature'
+        './src/features/**/*.feature'
     ],
     // Patterns to exclude.
     exclude: [
-        './features/pages/**/*.js'
+        './src/js/pages/**/*.js'
     ],
     //
     // ============
@@ -164,7 +164,7 @@ exports.config = {
     //
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
-        require: require('glob').sync('./features/step_definitions/**/*.js'), // <string[]> (file/dir) require files before executing features
+        require: require('glob').sync('./src/js/step_definitions/**/*.js'), // <string[]> (file/dir) require files before executing features
         backtrace: false,   // <boolean> show full backtrace for errors
         compiler: [],       // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
         dryRun: false,      // <boolean> invoke formatters without executing steps
