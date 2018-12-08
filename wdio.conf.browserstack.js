@@ -70,7 +70,6 @@ exports.config = {
         // 5 instances get started at a time.
         // maxInstances: 1,
         //
-        {
         device: 'iPhone 8 Plus',
         real_mobile: 'true',
         os_version: '11.0'
